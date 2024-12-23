@@ -506,6 +506,26 @@ tr.unmatched td:first-child {
   font-size: 0.875rem;
 }
 
+.footer-name-link {
+  color: #009990;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer-name-link:hover {
+  color: #074799;
+  text-decoration: underline;
+}
+
+.dark-theme .footer-name-link {
+  color: #074799;
+}
+
+.dark-theme .footer-name-link:hover {
+  color: #009990;
+}
+
 .progress-updates {
   margin-top: 1rem;
   padding: 1rem;

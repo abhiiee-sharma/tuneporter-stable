@@ -295,7 +295,12 @@ function App() {
         </form>
       </main>
       <footer className="footer">
-        <p>Made with ❤️ by Abhishek Sharma</p>
+        <p>Made with ❤️ by <a 
+          href="https://github.com/Abhiiee-Sharma" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="footer-name-link"
+        >Abhishek Sharma</a></p>
       </footer>
     </div>
   );
