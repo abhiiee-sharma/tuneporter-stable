@@ -58,38 +58,6 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.brand-text {
-  color: #ff0000;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.brand-text-len {
-  color: var(--text-color);
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.version {
-  background-color: #ff0000;
-  color: white;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-}
-
 .theme-toggle {
   display: flex;
   align-items: center;
@@ -98,22 +66,105 @@ body {
 }
 
 .icon-button {
-  background: none;
+  background: linear-gradient(45deg, #009990, #074799);
   border: none;
-  color: var(--text-color);
   cursor: pointer;
-  font-size: 1.2rem;
-  padding: 0.5rem;
-  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50px;
+  height: 25px;
+  border-radius: 20px;
+  position: relative;
+  padding: 0 4px;
+  transition: all 0.3s ease;
 }
 
-.icon-button:hover {
-  transform: scale(1.1);
+.icon-button::before {
+  content: '';
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background-color: white;
+  left: 2px;
+  top: 2px;
+  transition: transform 0.3s ease;
 }
 
-.icon-button img {
-  width: 24px;
-  height: 24px;
+.icon-button.dark-mode {
+  background: linear-gradient(45deg, #074799, #009990);
+}
+
+.icon-button.dark-mode::before {
+  transform: translateX(25px);
+}
+
+.icon-button-icon {
+  z-index: 1;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button-icon.moon {
+  order: 3;
+}
+
+.icon-button-icon.sun {
+  order: 1;
+}
+
+.icon-button .icon-button-icon {
+  opacity: 0.5;
+}
+
+.icon-button.dark-mode .icon-button-icon.moon,
+.icon-button:not(.dark-mode) .icon-button-icon.sun {
+  opacity: 1;
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.github-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .github-link:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.user-welcome-box {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 12px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 300px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.user-welcome-box-text {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.dark-theme .user-welcome-box {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 main {
@@ -477,4 +528,77 @@ tr.unmatched td:first-child {
   left: 0;
   color: var(--text-color);
   font-weight: bold;
+}
+
+.spotify-success-message {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 4px;
+  margin: 10px 0;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dark-theme .spotify-success-message {
+  background-color: #45a049;
+}
+
+.brand-text {
+  background: linear-gradient(45deg, #009990, #074799);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: 900;
+  font-size: 1.7rem;
+  letter-spacing: -1px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.dark-theme .brand-text {
+  background: linear-gradient(45deg, #009990, #074799);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 4px rgba(255,255,255,0.1);
+}
+
+.brand-text:hover {
+  transform: scale(1.05);
+  letter-spacing: 0;
+}
+
+.version {
+  background: linear-gradient(45deg, #009990, #074799);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-left: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.dark-theme .version {
+  background: linear-gradient(45deg, #009990, #074799);
+  box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-text:hover + .version {
+  transform: scale(1.1);
 }
